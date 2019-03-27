@@ -1,10 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { IncrementerComponent } from './incrementer/incrementer.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        IncrementerComponent,
         AppComponent
       ],
     }).compileComponents();

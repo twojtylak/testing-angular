@@ -22,4 +22,22 @@ describe('IncrementerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render a button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Increment');
+  });
+
+  it('should display counter set to zero by default', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.count').textContent).toBe('0');
+  });
+
+  it('should set counter to one after increment', () => {
+    component.incrementCounter();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.count').textContent).toBe('1');
+  });
+
 });
