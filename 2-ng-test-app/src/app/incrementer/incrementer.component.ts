@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncrementerComponent implements OnInit {
 
+  counter = 0;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  incrementCounter() {
+    this.counter +=1;
+  }
 }
