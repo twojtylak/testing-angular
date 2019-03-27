@@ -122,8 +122,23 @@ describe('Hello world', () => {
 
 ````
 
-### Running Jasmine Test
+---
 
+### Running Jasmine Tests
+
+---
+
+## Karma
+<img src="../img/karma.svg" width="100">
+
+* JavaScript Test Runner <!-- .element: class="fragment" data-fragment-index="1" -->
+* Öffnet Browser* und führt Tests innerhalb von diesem aus <!-- .element: class="fragment" data-fragment-index="2" -->
+* <!-- .element: class="fragment" data-fragment-index="3" -->Bereitet Ergebnisse CL-_freundlich_ auf  
+* <!-- .element: class="fragment" data-fragment-index="4" -->Kann innerhalb CI Prozess genutzt werden
+
+ <!-- .element: class="fragment small" data-fragment-index="5" -->*Statt einem tatsächlichen Browser kann auch PhantomJS (Headless Browser) verwendet werdne
+
+---
 
 
 
