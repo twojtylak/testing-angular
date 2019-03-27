@@ -275,3 +275,10 @@ body {
   .backgrounds {
     background-color: #fff; } }
 
+/*********************************************
+ * Custom Styles
+ *********************************************/
+
+.reveal .small {
+  font-size: 0.7em;
+}
