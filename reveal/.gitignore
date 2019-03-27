@@ -1,0 +1,7 @@
+.idea/
+*.iml
+*.iws
+*.eml
+.DS_Store
+.svn
+node_modules/
