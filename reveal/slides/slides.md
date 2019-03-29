@@ -242,3 +242,15 @@ describe('IncrementerComponent', () => {
 * <!-- .element: class="fragment small" data-fragment-index="2" -->(2) Via TestBed wird eine FixtureKomponente erstellt (Wrapper für Komponente und Template) 
 * <!-- .element: class="fragment small" data-fragment-index="3" -->(3) Die eigentliche Komponente steckt in `fixture.componentInstance`
 * <!-- .element: class="fragment small" data-fragment-index="4" -->(4) Interne ChangeDetection wird ausgeführt ≈ Template wird neu gerendert (Property Binding etc.)
+
+
+
+---
+
+### Beispiel
+
+
+---
+
+
+### Fragen
