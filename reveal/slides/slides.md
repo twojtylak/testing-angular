@@ -122,6 +122,9 @@ describe('Hello world', () => {
 
 ### Running Jasmine Tests
 
+1-jasmine-example
+
+
 ---
 
 ## Karma
@@ -150,6 +153,35 @@ describe('Hello world', () => {
 * <!-- .element: class="fragment" data-fragment-index="6" -->Specs werden automatisch beim Erstellen von Codeeinheiten via Angular CLI erstellt
 
 ---
+
+### Komponenten in Angular
+
+>Components are the most basic building block of an UI in an Angular application. 
+An Angular application is a tree of Angular components. 
+[...]components always have a template and only one component can be instantiated per an element in a template.
+
+
+---
+
+````typescript
+@Component({
+  selector: 'app-incrementer',
+  templateUrl: './incrementer.component.html',
+  styleUrls: ['./incrementer.component.css']
+})
+export class IncrementerComponent {}
+
+````
+
+* <!-- .element: class="fragment" data-fragment-index="1" -->Wird via `@Component` Decorator definiert
+* <!-- .element: class="fragment" data-fragment-index="2" -->Hat einen Selector
+* <!-- .element: class="fragment" data-fragment-index="3" -->Hat ein verknüpftes Template
+* <!-- .element: class="fragment" data-fragment-index="3" -->Hat verknüpfte Styles
+
+
+---
+
+### Generierte Spec
 
 ````typescript
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -184,9 +216,9 @@ describe('IncrementerComponent', () => {
 ### Angular TestBed
 
 
-* Angular spezifisches TestingFramework <!-- .element: class="fragment small" data-fragment-index="1" -->
-* Tests werden weiterhin in Jasmine geschrieben<!-- .element: class="fragment small" data-fragment-index="1" -->
-* Einfacheres Testen von der Erstellung von Komponenten, Handling von Depndendencies etc.<!-- .element: class="fragment small" data-fragment-index="1" -->
+* Angular spezifisches TestingFramework <!-- .element: class="fragment" data-fragment-index="1" -->
+* Tests werden weiterhin in Jasmine geschrieben<!-- .element: class="fragment" data-fragment-index="2" -->
+* Einfacheres Testen von der Erstellung von Komponenten, Handling von Depndendencies etc.<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ---
 
