@@ -1,6 +1,6 @@
 ## Warum Testen
 
-* Besseres Design <!-- .element: class="fragment" data-fragment-index="1" -->
+* Ggf. Besseres Design durch kleinere Codeeinheiten <!-- .element: class="fragment" data-fragment-index="1" -->
 * Einfacheres Refactoring <!-- .element: class="fragment" data-fragment-index="2" -->
 * Neue Features/Updates können einfacher hinzugefügt werden ohne etwas kaputt zu machen <!-- .element: class="fragment" data-fragment-index="3" -->
 * Dokumentation des Codes <!-- .element: class="fragment" data-fragment-index="4" -->
@@ -77,12 +77,8 @@ describe('Hello world', () => { (1)
 
 ### Setup und Teardown
 
-Oftmals muss vor der Ausführung von Tests ein Setup durchgeführt werden, dass für alle Specs gelten soll: 
-z.B. müssen Objekte die später verwendet werden soll initialisiert werden o.ä..
-
-Oder nachdem die Tests durchgeführt wurden sollen bestimmte Operationen durchgeführt werden z.b. Dateien die 
-während einem Test erzeugt wurden gelöscht werdne o.ä.
-
+* Ofmals spezfisiches Setup vor allen Specs einer Suite z.B. Objekte initialisert <!-- .element: class="fragment" data-fragment-index="1" -->
+* Oder Aufräumarbeiten o.ä nach Tests z.B. im Test generierte Dateien von Festplatte Löschen o.ä. <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
 
@@ -141,4 +137,76 @@ describe('Hello world', () => {
 ---
 
 
+### Testen in Angular
 
+
+<img src="../img/angular.svg" width="100"><!-- .element: class="fragment" data-fragment-index="1" -->
+<img src="../img/heart.svg" width="100"><!-- .element: class="fragment" data-fragment-index="2" -->
+<img src="../img/jasmine.svg" width="100"><!-- .element: class="fragment" data-fragment-index="3" -->
+<img src="../img/karma.svg" width="100"><!-- .element: class="fragment" data-fragment-index="4" -->
+
+
+* <!-- .element: class="fragment" data-fragment-index="5" -->Seit AngularJS bereits fest ins Framework integriert
+* <!-- .element: class="fragment" data-fragment-index="6" -->Specs werden automatisch beim Erstellen von Codeeinheiten via Angular CLI erstellt
+
+---
+
+````typescript
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { IncrementerComponent } from './incrementer.component';
+
+describe('IncrementerComponent', () => {
+  let component: IncrementerComponent;
+  let fixture: ComponentFixture<IncrementerComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ IncrementerComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(IncrementerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+````
+
+---
+
+### Angular TestBed
+
+
+* Angular spezifisches TestingFramework <!-- .element: class="fragment small" data-fragment-index="1" -->
+* Tests werden weiterhin in Jasmine geschrieben<!-- .element: class="fragment small" data-fragment-index="1" -->
+* Einfacheres Testen von der Erstellung von Komponenten, Handling von Depndendencies etc.<!-- .element: class="fragment small" data-fragment-index="1" -->
+
+---
+
+````typescript
+
+  beforeEach(async(() => { (1)
+    TestBed.configureTestingModule({
+      declarations: [ IncrementerComponent ]
+    })
+    .compileComponents();
+  }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(IncrementerComponent); (2)
+    component = fixture.componentInstance; (3)
+    fixture.detectChanges(); (4)
+  });
+
+````
+
+* <!-- .element: class="fragment small" data-fragment-index="1" -->(1) Im `beforeEach` der TestSuite wird ein TestingModul mit Hilfe von `TestBed` konfiguriert
+* <!-- .element: class="fragment small" data-fragment-index="2" -->(2) Via TestBed wird eine FixtureKomponente erstellt (Wrapper für Komponente und Template) 
+* <!-- .element: class="fragment small" data-fragment-index="3" -->(3) Die eigentliche Komponente steckt in `fixture.componentInstance`
+* <!-- .element: class="fragment small" data-fragment-index="4" -->(4) Interne ChangeDetection wird ausgeführt ≈ Template wird neu gerendert (Property Binding etc.)
